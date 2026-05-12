@@ -1,0 +1,17 @@
+{
+  "name": "Vision Premium Image Search",
+  "short_name": "Vision",
+  "description": "High-quality images for everyone, powered by Unsplash.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0a1a",
+  "theme_color": "#7c2dff",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/1042/1042339.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+/* ============================================================
+   ANIMATIONS — Keyframes, Transitions, Background Blobs
+   All animation definitions used throughout the application.
+   ============================================================ */
+
+/* ---------- Fade In ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ---------- Fade In Up (cards, content) ---------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Fade In Down ---------- */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Scale In (modal, popups) ---------- */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---------- Slide In from Right (sidebar) ---------- */
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+/* ---------- Slide In from Left ---------- */
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+/* ---------- Slide Up (toasts) ---------- */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Slide Down (dropdowns) ---------- */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Pulse (loading, mic icon) ---------- */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.7; transform: scale(1.05); }
+}
+
+/* ---------- Mic recording pulse ---------- */
+@keyframes micPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(239, 68, 68, 0);
+  }
+}
+
+/* ---------- Shimmer (skeleton loading) ---------- */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ---------- Spin (loading spinner) ---------- */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ---------- Float (hero elements) ---------- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-20px); }
+}
+
+/* ---------- Blob Morph (background blobs) ---------- */
+@keyframes blobMorph1 {
+  0%, 100% {
+    border-radius: 42% 58% 62% 38% / 48% 52% 48% 52%;
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    border-radius: 58% 42% 38% 62% / 52% 48% 52% 48%;
+    transform: translate(20px, -30px) scale(1.05);
+  }
+  50% {
+    border-radius: 48% 52% 58% 42% / 38% 62% 42% 58%;
+    transform: translate(-10px, 20px) scale(0.95);
+  }
+  75% {
+    border-radius: 38% 62% 42% 58% / 58% 42% 62% 38%;
+    transform: translate(15px, 10px) scale(1.02);
+  }
+}
+
+@keyframes blobMorph2 {
+  0%, 100% {
+    border-radius: 52% 48% 38% 62% / 42% 58% 38% 62%;
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    border-radius: 38% 62% 52% 48% / 58% 42% 62% 38%;
+    transform: translate(-25px, 15px) scale(1.08);
+  }
+  50% {
+    border-radius: 62% 38% 48% 52% / 48% 52% 38% 62%;
+    transform: translate(20px, -20px) scale(0.92);
+  }
+  75% {
+    border-radius: 48% 52% 62% 38% / 62% 38% 52% 48%;
+    transform: translate(-15px, -10px) scale(1.03);
+  }
+}
+
+@keyframes blobMorph3 {
+  0%, 100% {
+    border-radius: 58% 42% 48% 52% / 52% 48% 58% 42%;
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    border-radius: 42% 58% 52% 48% / 48% 52% 42% 58%;
+    transform: translate(30px, 20px) scale(0.96);
+  }
+  66% {
+    border-radius: 52% 48% 42% 58% / 58% 42% 48% 52%;
+    transform: translate(-20px, -15px) scale(1.06);
+  }
+}
+
+/* ---------- Gradient Shift (hero background) ---------- */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------- Heart Pop (favorite) ---------- */
+@keyframes heartPop {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.3); }
+  50%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- Toast Enter ---------- */
+@keyframes toastEnter {
+  from {
+    opacity: 0;
+    transform: translateX(100%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* ---------- Toast Exit ---------- */
+@keyframes toastExit {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%) scale(0.9);
+  }
+}
+
+/* ---------- Page Loader Pulse ---------- */
+@keyframes loaderPulse {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ---------- Typing Cursor ---------- */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* ============================================================
+   ANIMATED BACKGROUND BLOBS
+   Used in the hero section for the glass/AI aesthetic.
+   ============================================================ */
+.hero-blobs {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-blobs .blob {
+  position: absolute;
+  filter: blur(80px);
+  opacity: 0.5;
+  will-change: transform, border-radius;
+}
+
+.hero-blobs .blob:nth-child(1) {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+  top: -10%;
+  left: -5%;
+  animation: blobMorph1 12s ease-in-out infinite;
+}
+
+.hero-blobs .blob:nth-child(2) {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, var(--accent-400), var(--primary-400));
+  top: 20%;
+  right: -8%;
+  animation: blobMorph2 15s ease-in-out infinite;
+}
+
+.hero-blobs .blob:nth-child(3) {
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(135deg, var(--primary-300), #06b6d4);
+  bottom: -15%;
+  left: 30%;
+  animation: blobMorph3 18s ease-in-out infinite;
+}
+
+/* Light theme blob adjustments */
+[data-theme="light"] .hero-blobs .blob {
+  opacity: 0.25;
+}

@@ -1,0 +1,330 @@
+/* ============================================================
+   LAYOUT STYLES — Hero, Grid, Sidebar, Responsive
+   Handles the structural layout of the application.
+   ============================================================ */
+
+/* ---------- Main Wrapper ---------- */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ---------- Header ---------- */
+header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  transition: background-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+header.scrolled {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--shadow-md);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.logo {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-black);
+  letter-spacing: -0.05em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.logo span {
+  background: linear-gradient(135deg, var(--primary-300), var(--accent-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-20) var(--space-6) var(--space-10);
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(10, 10, 26, 0.4) 0%, var(--bg-primary) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero h1 {
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.02em;
+}
+
+.hero p {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-10);
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/* ---------- Search Bar Layout ---------- */
+.search-container-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ---------- Results Grid (Masonry) ---------- */
+.results-section {
+  padding: var(--space-10) 0;
+  flex: 1;
+}
+
+#search-result {
+  columns: 4 250px;
+  column-gap: var(--space-6);
+  width: 100%;
+}
+
+#search-result > * {
+  break-inside: avoid;
+  margin-bottom: var(--space-6);
+}
+
+/* ---------- Filter Bar ---------- */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 0; 
+  margin-bottom: var(--space-4);
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Spacer items to prevent clipping at edges when scrolling */
+.filter-bar > *:first-child { margin-left: var(--space-6); }
+.filter-bar > *:last-child { margin-right: var(--space-6); }
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* ---------- Sidebar (History) ---------- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  background: var(--bg-surface);
+  z-index: var(--z-sidebar);
+  transform: translateX(-100%);
+  transition: transform var(--transition-base);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  padding: var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4);
+}
+
+/* ---------- Sentinel for Infinite Scroll ---------- */
+#infinite-scroll-sentinel {
+  height: 50px;
+  width: 100%;
+}
+
+/* ---------- Footer ---------- */
+.main-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  padding: var(--space-20) 0 0;
+  margin-top: var(--space-20);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--space-12);
+  margin-bottom: var(--space-16);
+}
+
+.footer-brand .logo {
+  margin-bottom: var(--space-4);
+}
+
+.footer-desc {
+  font-size: var(--text-sm);
+  max-width: 300px;
+  margin-bottom: var(--space-6);
+  line-height: 1.6;
+}
+
+.footer-socials {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.social-link {
+  color: var(--text-secondary);
+  font-size: var(--text-xl);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.social-link:hover {
+  color: var(--primary-400);
+  transform: translateY(-3px);
+}
+
+.footer-links h4 {
+  margin-bottom: var(--space-6);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+}
+
+.footer-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--primary-400);
+  padding-left: 4px;
+}
+
+.footer-bottom {
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+  background: var(--bg-primary);
+}
+
+.footer-bottom p {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .main-footer {
+    padding: var(--space-12) 0 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+}
+
+.category-chips-container {
+  justify-content: flex-start; 
+  margin-top: var(--space-6);
+  width: 100%;
+}
+
+/* Center chips only on desktop when they likely fit */
+@media (min-width: 1024px) {
+  .category-chips-container {
+    justify-content: center;
+  }
+  .category-chips-container > *:first-child { margin-left: 0; }
+  .category-chips-container > *:last-child { margin-right: 0; }
+}
+
+/* ---------- Responsive Breakpoints ---------- */
+@media (max-width: 1024px) {
+  #search-result {
+    columns: 3 250px;
+  }
+  h1 { font-size: var(--text-4xl); }
+}
+
+@media (max-width: 768px) {
+  #search-result {
+    columns: 2 200px;
+  }
+  .hero { min-height: 60vh; }
+  h1 { font-size: var(--text-3xl); }
+  .sidebar { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  #search-result {
+    columns: 1;
+  }
+  .header-actions .keyboard-hint { display: none; }
+  .filter-bar { padding: var(--space-4) 0; }
+}
